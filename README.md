@@ -4,7 +4,7 @@
 ![solved.ac 프로필](http://mazassumnida.wtf/api/v2/generate_badge?boj=anximusic7)
 
 ## ToDo
-- ### [STL Deque](https://blog.encrypted.gg/935)
+- ### [Advnaced Stack](https://blog.encrypted.gg/936)
 
 ## 🏃‍♂️ 백준 문제 풀이
 ### 📁 단계별 문제 풀이
