@@ -17,8 +17,6 @@
 ## 📚 진행중인 학습
 <p align="center">
   <a href="https://blog.encrypted.gg/936"><img src="https://img.shields.io/badge/Advanced_Stack-FF6B6B?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
-  <img src="https://img.shields.io/badge/Dynamic_Programming-4479A1?style=flat-square&logo=&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Graph_Theory-339933?style=flat-square&logo=&logoColor=white"/>
 </p>
 
 ## 🏃‍♂️ 백준 문제 풀이
