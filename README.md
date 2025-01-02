@@ -1,6 +1,6 @@
 <div align="center">
 
-![header](https://capsule-render.vercel.app/api?type=waving&color=0066ff&height=200&section=header&text=Algorithm%20Study&fontSize=60&animation=twinkling&fontAlignY=38&desc=Problem%20Solving%20Repository&descAlignY=60&descAlign=62)
+![header](https://capsule-render.vercel.app/api?type=transparent&color=39FF14&height=150&section=header&text=Algorithm%20Study&fontSize=70&animation=fadeIn&fontColor=39FF14&desc=Problem%20Solving%20Repository&descSize=25&descAlignY=75)
 
 ## 📊 Current Status
 <p align="center">
