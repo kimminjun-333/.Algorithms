@@ -151,14 +151,14 @@ def generate_readme():
         # 문제 정렬 (난이도 -> 번호)
         sorted_problems = sorted(problems, key=lambda x: (x['difficulty'], x['number']))
         
-        # 문제 목록 추가 (불필요한 개행 제거)
+        # 문제 목록 추가 (두 줄 개행으로 변경)
         for prob in sorted_problems:
-            readme_content += f"{prob['difficulty']} [{prob['name']} (BOJ {prob['number']})]({prob['path']})  \n"
+            readme_content += f"{prob['difficulty']} [{prob['name']} (BOJ {prob['number']})]({prob['path']})\n\n"
         
         # 구현 테스트 파일이 있다면 추가
         test_path = f"Solutions/DataStructures/_Tests/{tag_display.replace(' ', '')}Test"
         if os.path.exists(test_path):
-            readme_content += f"\n✅ [{tag_display} Implementation Test]({test_path}/{tag.lower()}_test.cpp)  \n"
+            readme_content += f"✅ [{tag_display} Implementation Test]({test_path}/{tag.lower()}_test.cpp)\n\n"
         
         readme_content += "</div>\n</details>\n\n"
     
