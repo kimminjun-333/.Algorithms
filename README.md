@@ -34,6 +34,11 @@
 
 **Total Solved: 18 Problems**
 </div>
+
+
+<details>
+<summary>Data Structures</summary>
+<div align="center">
 ## 🏃‍♂️ Problem Solving
 ### 🏅 Difficulty Stats
 
