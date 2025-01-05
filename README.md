@@ -16,7 +16,7 @@
 
 ## 📚 Current Focus
 <p align="center">
-  <a href="https://blog.encrypted.gg/936"><img src="https://img.shields.io/badge/Advanced_Stack-FF6B6B?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
+  <a href="https://blog.encrypted.gg/941"><img src="https://img.shields.io/badge/BFS-FF6B6B?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
 </p>
 
 ## 🏃‍♂️ Problem Solving
@@ -37,10 +37,17 @@
 ✅ [Stack Implementation (BOJ 10828)](Solutions/Baekjoon/10828.cpp)  
 ✅ [Zero (BOJ 10773)](Solutions/Baekjoon/10773.cpp)  
 ✅ [Next Greater Element (BOJ 17298)](Solutions/Baekjoon/17298.cpp)
+<br>
+✅ [Parenthesis String (BOJ 4949)](Solutions/Baekjoon/4949/4949.cpp)
 
 ### Deque
 ✅ [Deque Implementation (BOJ 10866)](Solutions/Baekjoon/10866/10866.cpp)  
 ✅ [Deque Implementation Test](Solutions/DataStructures/_Tests/DequeTest/deque_test.cpp)
+
+### Queue
+✅ [Queue Implementation (BOJ 10845)](Solutions/Baekjoon/10845.cpp)  
+✅ [Queue Implementation Test](Solutions/DataStructures/_Tests/QueueTest/queue_test.cpp)
+
 </div>
 </details>
 
