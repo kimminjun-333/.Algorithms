@@ -2,6 +2,7 @@ import os
 import requests
 from datetime import datetime
 from typing import Dict, List
+import json
 
 class ProblemInfo:
     def __init__(self, number: str, data: Dict):
@@ -90,6 +91,29 @@ def collect_problems():
     
     return problems_by_tag, difficulty_stats, len(total_problems)
 
+def generate_current_focus():
+    try:
+        with open(".github/scripts/current_focus.json", "r", encoding="utf-8") as f:
+            data = json.loads(f.read())
+            
+        content = """## 📚 Current Focus
+<p align="center">"""
+        
+        for topic in data["topics"]:
+            content += f"""
+  <a href="{topic['url']}"><img src="https://img.shields.io/badge/{topic['name'].replace(' ', '_')}-{topic['color']}?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>"""
+            
+        content += "\n</p>\n"
+        return content
+    except Exception as e:
+        print(f"Error generating current focus: {e}")
+        return """## 📚 Current Focus
+<p align="center">
+  <a href="https://blog.encrypted.gg/936"><img src="https://img.shields.io/badge/Advanced_Stack-FF6B6B?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
+  <a href="https://blog.encrypted.gg/941"><img src="https://img.shields.io/badge/BFS-00599C?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
+</p>
+"""
+
 def generate_readme():
     problems_by_tag, difficulty_stats, total_count = collect_problems()
     
@@ -110,18 +134,12 @@ def generate_readme():
   <img src="https://img.shields.io/badge/Problem_Solving-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
 </p>
 
-## 📚 Current Focus
-<p align="center">
-  <a href="https://blog.encrypted.gg/936"><img src="https://img.shields.io/badge/Advanced_Stack-FF6B6B?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
-  <a href="https://blog.encrypted.gg/935"><img src="https://img.shields.io/badge/Binary_Search-00599C?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
-</p>
-
-## 🏃‍♂️ Problem Solving
-
-### 🏅 Difficulty Stats
-<div align="center">
-
 """
+    
+    # Current Focus 섹션 추가
+    readme_content += generate_current_focus()
+    
+    readme_content += "\n## 🏃‍♂️ Problem Solving\n"
     
     # 난이도 통계 추가
     difficulty_names = {

@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-    cout << "Testing category newlines" << endl;
+    cout << "Testing current focus automation" << endl;
     return 0;
 } 
