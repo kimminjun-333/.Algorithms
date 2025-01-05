@@ -24,14 +24,24 @@
 <div align="center">
 
 `🥉 Bronze                      ` `0`
-`🥈 Silver                      ` `6`
+`🥈 Silver                      ` `7`
 `🥇 Gold                        ` `1`
 `💎 Platinum                    ` `0`
 `👑 Diamond                     ` `0`
 `🏆 Ruby                        ` `0`
 
-**Total Solved: 7 Problems**
+**Total Solved: 8 Problems**
 </div>
+
+<details>
+<summary>Bfs</summary>
+
+<div align="center">
+
+🥈 [숨바꼭질 (BOJ 1697)](Solutions/Baekjoon/1697/1697.cpp)
+
+</div>
+</details>
 
 <details>
 <summary>Data Structures</summary>
@@ -69,6 +79,26 @@
 <div align="center">
 
 🥇 [평범한 배낭 (BOJ 12865)](Solutions/Baekjoon/12865/12865.cpp)
+
+</div>
+</details>
+
+<details>
+<summary>Graph Traversal</summary>
+
+<div align="center">
+
+🥈 [숨바꼭질 (BOJ 1697)](Solutions/Baekjoon/1697/1697.cpp)
+
+</div>
+</details>
+
+<details>
+<summary>Graphs</summary>
+
+<div align="center">
+
+🥈 [숨바꼭질 (BOJ 1697)](Solutions/Baekjoon/1697/1697.cpp)
 
 </div>
 </details>
