@@ -53,7 +53,13 @@ def collect_problems():
     
     # 문제 수집
     solutions_dir = "Solutions/Baekjoon"
-    problem_numbers = [f for f in os.listdir(solutions_dir) if f.isdigit()]
+    problem_numbers = []
+    
+    # 디렉토리 구조 확인 및 문제 번호 수집
+    for item in os.listdir(solutions_dir):
+        if item.isdigit():
+            problem_numbers.append(item)
+    
     problem_info = fetch_problem_info(problem_numbers)
     
     # 문제 분류 및 통계
@@ -66,11 +72,14 @@ def collect_problems():
                 difficulty_stats[difficulty] += 1
                 total_problems.add(number)
             
+            # 파일 경로 설정 (항상 문제 번호 디렉토리 사용)
+            file_path = f"{number}/{number}.cpp"
+            
             problem_data = {
                 'number': number,
                 'name': info.title,
                 'difficulty': difficulty,
-                'path': f"Solutions/Baekjoon/{number}.cpp"
+                'path': f"Solutions/Baekjoon/{file_path}"
             }
             
             # 태그별로 분류
@@ -137,20 +146,19 @@ def generate_readme():
 <summary>{tag_display}</summary>
 
 <div align="center">
-
 """
         
         # 문제 정렬 (난이도 -> 번호)
         sorted_problems = sorted(problems, key=lambda x: (x['difficulty'], x['number']))
         
-        # 문제 목록 추가
+        # 문제 목록 추가 (불필요한 개행 제거)
         for prob in sorted_problems:
-            readme_content += f"{prob['difficulty']} [{prob['name']} (BOJ {prob['number']})]({prob['path']})\n\n"
+            readme_content += f"{prob['difficulty']} [{prob['name']} (BOJ {prob['number']})]({prob['path']})  \n"
         
         # 구현 테스트 파일이 있다면 추가
         test_path = f"Solutions/DataStructures/_Tests/{tag_display.replace(' ', '')}Test"
         if os.path.exists(test_path):
-            readme_content += f"✅ [{tag_display} Implementation Test]({test_path}/{tag.lower()}_test.cpp)\n\n"
+            readme_content += f"\n✅ [{tag_display} Implementation Test]({test_path}/{tag.lower()}_test.cpp)  \n"
         
         readme_content += "</div>\n</details>\n\n"
     

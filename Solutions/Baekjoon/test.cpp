@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-    cout << "Testing file path structure" << endl;
+    cout << "Testing updated path structure and newlines" << endl;
     return 0;
 } 
