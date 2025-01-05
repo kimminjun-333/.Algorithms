@@ -205,30 +205,38 @@ def generate_problem_solving_section(problems):
     # 난이도 통계 추가
     problem_section += generate_difficulty_stats(problems)
     
-    problem_section += """<details open>
-<summary>Solved Problems by Category</summary>
-<div align="center">
-"""
+    # 문제 목록 (중복 제거)
+    seen_problems = set()  # 이미 표시한 문제들을 추적
     
-    # 태그별로 섹션 생성 (기존 코드와 동일)
+    # 태그별로 섹션 생성
     for tag, prob_list in sorted(problems.items()):
         tag_display = tag.replace('_', ' ').title()
-        problem_section += f"\n### {tag_display}\n"
         
+        # 각 태그를 접을 수 있는 details 태그 추가
+        problem_section += f"""
+<details>
+<summary>{tag_display}</summary>
+<div align="center">
+"""
+        
+        # 해당 태그의 문제들을 난이도순으로 정렬
         sorted_problems = sorted(prob_list, key=lambda x: (x['difficulty'], x['number']))
         
+        # 중복되지 않은 문제만 추가
         for prob in sorted_problems:
-            problem_section += (
-                f"{prob['difficulty']} [{prob['name']} (BOJ {prob['number']})]({prob['path']})  \n"
-            )
+            problem_key = f"{prob['number']}"
+            if problem_key not in seen_problems:
+                problem_section += (
+                    f"{prob['difficulty']} [{prob['name']} (BOJ {prob['number']})]({prob['path']})  \n"
+                )
+                seen_problems.add(problem_key)
         
+        # 구현 테스트 파일이 있다면 추가
         test_path = f"Solutions/DataStructures/_Tests/{tag_display.replace(' ', '')}Test"
         if os.path.exists(test_path):
             problem_section += f"✅ [{tag_display} Implementation Test]({test_path}/{tag.lower()}_test.cpp)\n"
         
-        problem_section += "\n"
-    
-    problem_section += "</div>\n</details>\n"
+        problem_section += "</div>\n</details>\n"
     
     return problem_section
 
