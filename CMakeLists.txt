@@ -15,7 +15,7 @@ message(STATUS "Searching for source files...")
 # 모든 cpp 파일을 찾습니다
 file(GLOB_RECURSE SOURCES 
     "Solutions/Baekjoon/**/*.cpp"
-    "Solutions/DataStructures/_Tests/**/*.cpp"
+    "Solutions/Algos/_Tests/**/*.cpp"
 )
 
 # 찾은 파일들 출력
