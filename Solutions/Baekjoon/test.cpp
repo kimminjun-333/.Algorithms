@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-    cout << "Testing GitHub Actions with GITHUB_TOKEN" << endl;
+    cout << "Testing GitHub N" << endl;
     return 0;
 } 

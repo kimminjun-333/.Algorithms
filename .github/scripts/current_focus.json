@@ -1,11 +1,6 @@
 {
     "topics": [
         {
-            "name": "Advanced Stack",
-            "url": "https://blog.encrypted.gg/936",
-            "color": "FF6B6B"
-        },
-        {
             "name": "BFS",
             "url": "https://blog.encrypted.gg/941",
             "color": "00599C"

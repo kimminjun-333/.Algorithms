@@ -2,21 +2,20 @@ name: Update README
 
 on:
   push:
-    branches:
-      - main
     paths:
       - 'Solutions/**'
-      - '.github/config/current_focus.json'
-  workflow_dispatch:
+      - '.github/scripts/**'
 
 jobs:
   update-readme:
     runs-on: ubuntu-latest
-    
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v2
         with:
-          token: ${{ secrets.PAT }}
+          persist-credentials: false
+          fetch-depth: 0
       
       - name: Set up Python
         uses: actions/setup-python@v2
@@ -24,10 +23,8 @@ jobs:
           python-version: '3.x'
           
       - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          
+        run: pip install requests
+        
       - name: Update README
         run: python .github/scripts/update_readme.py
         
@@ -36,10 +33,9 @@ jobs:
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add README.md
-          git commit -m "docs: README 자동 업데이트" || exit 0
+          git commit -m "docs: README 업데이트" || echo "No changes to commit"
           
       - name: Push changes
         uses: ad-m/github-push-action@master
         with:
-          github_token: ${{ secrets.PAT }}
-          branch: ${{ github.ref }} 
+          github_token: ${{ secrets.GITHUB_TOKEN }} 
