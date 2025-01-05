@@ -25,6 +25,26 @@
 <summary>Data Structures</summary>
 <div align="center">
 🥈 [스택 (BOJ 10828)](Solutions/Baekjoon/10828.cpp)  
+## 🏃‍♂️ Problem Solving
+### 🏅 Difficulty Stats
+
+<div align='center'>
+
+`🥉 Bronze                      ` `0`
+`🥈 Silver                      ` `16`
+`🥇 Gold                        ` `2`
+`💎 Platinum                    ` `0`
+`👑 Diamond                     ` `0`
+`🏆 Ruby                        ` `0`
+
+**Total Solved: 18 Problems**
+</div>
+
+
+<details>
+<summary>Data Structures</summary>
+<div align="center">
+🥈 [스택 (BOJ 10828)](Solutions/Baekjoon/10828.cpp)  
 🥈 [큐 (BOJ 10845)](Solutions/Baekjoon/10845.cpp)  
 🥈 [덱 (BOJ 10866)](Solutions/Baekjoon/10866.cpp)  
 🥈 [에디터 (BOJ 1406)](Solutions/Baekjoon/1406.cpp)  
@@ -84,4 +104,5 @@
 <summary>String</summary>
 <div align="center">
 </div>
+</details>
 </details>
