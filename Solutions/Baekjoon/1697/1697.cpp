@@ -11,7 +11,6 @@ int dist[100002];
 int n, k;  // n: 수빈이의 시작 위치, k: 동생의 위치
 
 int main(void) {
-    // 입출력 최적화
     ios::sync_with_stdio(0);
     cin.tie(0);
 
