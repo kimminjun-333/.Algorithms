@@ -60,8 +60,6 @@
 
 🥈 [덱 (BOJ 10866)](Solutions/Baekjoon/10866/10866.cpp)
 
-✅ [Deque Implementation Test](Solutions/DataStructures/_Tests/DequeTest/deque_test.cpp)
-
 </div>
 </details>
 
@@ -104,8 +102,6 @@
 
 🥈 [에디터 (BOJ 1406)](Solutions/Baekjoon/1406/1406.cpp)
 
-✅ [Linked List Implementation Test](Solutions/DataStructures/_Tests/LinkedListTest/linked_list_test.cpp)
-
 </div>
 </details>
 
@@ -115,8 +111,6 @@
 <div align="center">
 
 🥈 [큐 (BOJ 10845)](Solutions/Baekjoon/10845/10845.cpp)
-
-✅ [Queue Implementation Test](Solutions/DataStructures/_Tests/QueueTest/queue_test.cpp)
 
 </div>
 </details>
@@ -133,8 +127,6 @@
 🥈 [스택 수열 (BOJ 1874)](Solutions/Baekjoon/1874/1874.cpp)
 
 🥈 [균형잡힌 세상 (BOJ 4949)](Solutions/Baekjoon/4949/4949.cpp)
-
-✅ [Stack Implementation Test](Solutions/DataStructures/_Tests/StackTest/stack_test.cpp)
 
 </div>
 </details>
