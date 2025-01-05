@@ -29,6 +29,11 @@
 `🥈 Silver                      ` `16`
 `🥇 Gold                        ` `2`
 `💎 Platinum                    ` `0`
+`👑 Diamond                     ` `0`
+`🏆 Ruby                        ` `0`
+
+**Total Solved: 18 Problems**
+</div>
 ## 🏃‍♂️ Problem Solving
 ### 🏅 Difficulty Stats
 
