@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-    cout << "Testing current focus automation" << endl;
+    cout << "Testing alignment fix" << endl;
     return 0;
 } 

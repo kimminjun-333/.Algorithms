@@ -142,6 +142,11 @@ def generate_readme():
     readme_content += "\n## 🏃‍♂️ Problem Solving\n"
     
     # 난이도 통계 추가
+    readme_content += """### 🏅 Difficulty Stats
+<div align="center">
+
+"""
+    
     difficulty_names = {
         '🥉': 'Bronze', '🥈': 'Silver', '🥇': 'Gold',
         '💎': 'Platinum', '👑': 'Diamond', '🏆': 'Ruby'
