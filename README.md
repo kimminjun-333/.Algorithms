@@ -21,6 +21,9 @@
 </p>
 
 ## 🏃‍♂️ Problem Solving
+### 🏅 Difficulty Stats
+<div align="center">
+
 `🥉 Bronze                      ` `0`
 `🥈 Silver                      ` `6`
 `🥇 Gold                        ` `1`
