@@ -2,7 +2,6 @@ import os
 import requests
 from datetime import datetime
 from typing import Dict, List
-import json
 
 class ProblemInfo:
     def __init__(self, number: str, data: Dict):
@@ -12,7 +11,6 @@ class ProblemInfo:
         self.tags = [tag['key'] for tag in data.get('tags', [])]
         
     def get_difficulty_emoji(self) -> str:
-        # solved.ac 레벨에 따른 이모지 반환
         level_emoji = {
             0: '🌱',  # Unrated
             1: '🥉', 2: '🥉', 3: '🥉', 4: '🥉', 5: '🥉',  # Bronze
@@ -25,10 +23,9 @@ class ProblemInfo:
         return level_emoji.get(self.level, '🌱')
 
 def fetch_problem_info(problem_numbers: List[str]) -> Dict[str, ProblemInfo]:
-    """solved.ac API를 사용하여 문제 정보를 가져옵니다"""
     problems = {}
     
-    # 100개씩 나누어 요청 (API 제한 고려)
+    # 100개씩 나누어 요청
     for i in range(0, len(problem_numbers), 100):
         batch = problem_numbers[i:i+100]
         query = ','.join(batch)
@@ -46,199 +43,129 @@ def fetch_problem_info(problem_numbers: List[str]) -> Dict[str, ProblemInfo]:
             
     return problems
 
-def get_problem_sections():
-    problems = {}  # 동적으로 카테고리 생성
+def collect_problems():
+    problems_by_tag = {}
+    difficulty_stats = {
+        '🥉': 0, '🥈': 0, '🥇': 0,
+        '💎': 0, '👑': 0, '🏆': 0
+    }
+    total_problems = set()
+    
+    # 문제 수집
     solutions_dir = "Solutions/Baekjoon"
-    
-    # 문제 번호 수집
-    problem_numbers = []
-    for problem_dir in os.listdir(solutions_dir):
-        if problem_dir.isdigit():
-            problem_numbers.append(problem_dir)
-    
-    # solved.ac API로 문제 정보 가져오기
+    problem_numbers = [f for f in os.listdir(solutions_dir) if f.isdigit()]
     problem_info = fetch_problem_info(problem_numbers)
     
-    # 문제 분류 (태그 기반)
-    for problem_dir in problem_numbers:
-        if problem_dir in problem_info:
-            info = problem_info[problem_dir]
-            problem_path = f"Solutions/Baekjoon/{problem_dir}"
+    # 문제 분류 및 통계
+    for number in problem_numbers:
+        if number in problem_info:
+            info = problem_info[number]
+            difficulty = info.get_difficulty_emoji()
+            
+            if number not in total_problems:
+                difficulty_stats[difficulty] += 1
+                total_problems.add(number)
             
             problem_data = {
-                'number': problem_dir,
+                'number': number,
                 'name': info.title,
-                'path': f"{problem_path}.cpp",
-                'difficulty': info.get_difficulty_emoji(),
-                'tags': info.tags
+                'difficulty': difficulty,
+                'path': f"Solutions/Baekjoon/{number}.cpp"
             }
             
-            # 각 태그별로 카테고리 생성 및 문제 추가
+            # 태그별로 분류
             for tag in info.tags:
-                if tag not in problems:
-                    problems[tag] = []
-                problems[tag].append(problem_data)
+                if tag not in problems_by_tag:
+                    problems_by_tag[tag] = []
+                problems_by_tag[tag].append(problem_data)
     
-    return problems
+    return problems_by_tag, difficulty_stats, len(total_problems)
 
-def get_current_focus():
-    try:
-        with open(".github/config/current_focus.json", "r", encoding="utf-8") as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"Error loading current focus: {e}")
-        return {"current_focus": []}
+def generate_readme():
+    problems_by_tag, difficulty_stats, total_count = collect_problems()
+    
+    # 기본 README 구조
+    readme_content = """<div align="center">
 
-def update_readme():
-    # 현재 README.md 파일을 읽습니다
-    with open("README.md", "r", encoding="utf-8") as f:
-        content = f.readlines()
-    
-    # 각 섹션의 시작과 끝 인덱스를 찾습니다
-    sections = {
-        'header': {'start': -1, 'end': -1},
-        'current_status': {'start': -1, 'end': -1},
-        'learning_progress': {'start': -1, 'end': -1},
-        'current_focus': {'start': -1, 'end': -1},
-        'problem_solving': {'start': -1, 'end': -1},
-        'development_env': {'start': -1, 'end': -1},
-        'references': {'start': -1, 'end': -1}
-    }
-    
-    # 각 섹션의 시작과 끝 위치를 찾습니다
-    for i, line in enumerate(content):
-        if '<div align="center">' in line:
-            sections['header']['start'] = i
-        elif '## 📊 Current Status' in line:
-            sections['current_status']['start'] = i
-            sections['header']['end'] = i
-        elif '## 🎯 Learning Progress' in line:
-            sections['learning_progress']['start'] = i
-            sections['current_status']['end'] = i
-        elif '## 📚 Current Focus' in line:
-            sections['current_focus']['start'] = i
-            sections['learning_progress']['end'] = i
-        elif '## 🏃‍♂️ Problem Solving' in line:
-            sections['problem_solving']['start'] = i
-            sections['current_focus']['end'] = i
-        elif '## 🛠 Development Environment' in line:
-            sections['development_env']['start'] = i
-            sections['problem_solving']['end'] = i
-        elif '## 📚 References' in line:
-            sections['references']['start'] = i
-            sections['development_env']['end'] = i
-            
-    if sections['references']['start'] != -1:
-        sections['references']['end'] = len(content)
-    
-    # Current Focus 섹션 업데이트
-    if sections['current_focus']['start'] != -1:
-        focus_data = get_current_focus()
-        focus_section = """## 📚 Current Focus
+![header](https://capsule-render.vercel.app/api?type=transparent&color=39FF14&height=150&section=header&text=Algorithm%20Study&fontSize=70&animation=fadeIn&fontColor=39FF14&desc=Problem%20Solving%20Repository&descSize=25&descAlignY=75)
+
+## 📊 Current Status
 <p align="center">
+  <a href="https://solved.ac/profile/anximusic7"><img height="180em" src="http://mazassumnida.wtf/api/v2/generate_badge?boj=anximusic7"/></a>
+</p>
+
+## 🎯 Learning Progress
+<p align="center">
+  <img src="https://img.shields.io/badge/Data_Structures-007396?style=for-the-badge&logo=java&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Algorithms-FF6B6B?style=for-the-badge&logo=TheAlgorithms&logoColor=white"/>
+  <img src="https://img.shields.io/badge/Problem_Solving-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
+</p>
+
+## 📚 Current Focus
+<p align="center">
+  <a href="https://blog.encrypted.gg/936"><img src="https://img.shields.io/badge/Advanced_Stack-FF6B6B?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
+  <a href="https://blog.encrypted.gg/935"><img src="https://img.shields.io/badge/Binary_Search-00599C?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
+</p>
+
+## 🏃‍♂️ Problem Solving
+
+### 🏅 Difficulty Stats
+<div align="center">
+
 """
-        for focus in focus_data['current_focus']:
-            focus_section += f'  <a href="{focus["url"]}"><img src="https://img.shields.io/badge/{focus["name"].replace(" ", "_")}-{focus["color"]}?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>\n'
-        focus_section += "</p>\n\n"
-        
-        # Current Focus 섹션 업데이트
-        content = (
-            content[:sections['current_focus']['start']] +
-            [focus_section] +
-            content[sections['current_focus']['end']:]
-        )
-    
-    # Problem Solving 섹션 업데이트
-    if sections['problem_solving']['start'] != -1:
-        # Data Structures 섹션 생성
-        problems = get_problem_sections()
-        problem_section = generate_problem_solving_section(problems)
-        
-        # Problem Solving 섹션 업데이트
-        content = (
-            content[:sections['problem_solving']['start']] +
-            [problem_section] +
-            content[sections['problem_solving']['end']:]
-        )
-    
-    # 파일에 쓰기
-    with open("README.md", "w", encoding="utf-8") as f:
-        f.writelines(content)
-
-def generate_difficulty_stats(problems):
-    # 난이도 카운트
-    difficulty_count = {
-        '🥉': {'name': 'Bronze', 'count': 0},
-        '🥈': {'name': 'Silver', 'count': 0},
-        '🥇': {'name': 'Gold', 'count': 0},
-        '💎': {'name': 'Platinum', 'count': 0},
-        '👑': {'name': 'Diamond', 'count': 0},
-        '🏆': {'name': 'Ruby', 'count': 0}
-    }
-    
-    for tag, prob_list in problems.items():
-        for prob in prob_list:
-            diff = prob['difficulty']
-            if diff in difficulty_count:
-                difficulty_count[diff]['count'] += 1
-    
-    # 통계 섹션 생성
-    stats_section = "\n### 🏅 Difficulty Stats\n\n"
-    stats_section += "<div align='center'>\n\n"
-    
-    # 각 난이도별 통계 (깔끔하게 정렬된 형태)
-    for diff, data in difficulty_count.items():
-        count = data['count']
-        # 30자 길이로 맞춰서 정렬
-        formatted_text = f"{diff} {data['name']}".ljust(30)
-        stats_section += f"`{formatted_text}` `{count}`\n"
-    
-    total = sum(d['count'] for d in difficulty_count.values())
-    stats_section += f"\n**Total Solved: {total} Problems**\n"
-    stats_section += "</div>\n\n"
-    
-    return stats_section
-
-def generate_problem_solving_section(problems):
-    problem_section = """## 🏃‍♂️ Problem Solving"""
     
     # 난이도 통계 추가
-    problem_section += generate_difficulty_stats(problems)
+    difficulty_names = {
+        '🥉': 'Bronze', '🥈': 'Silver', '🥇': 'Gold',
+        '💎': 'Platinum', '👑': 'Diamond', '🏆': 'Ruby'
+    }
     
-    # 문제 목록 (중복 제거)
-    seen_problems = set()  # 이미 표시한 문제들을 추적
+    for emoji, name in difficulty_names.items():
+        count = difficulty_stats[emoji]
+        formatted_text = f"{emoji} {name}".ljust(30)
+        readme_content += f"`{formatted_text}` `{count}`\n"
     
-    # 태그별로 섹션 생성
-    for tag, prob_list in sorted(problems.items()):
+    readme_content += f"\n**Total Solved: {total_count} Problems**\n</div>\n\n"
+    
+    # 문제 목록 추가
+    for tag, problems in sorted(problems_by_tag.items()):
+        if not problems:  # 빈 카테고리 건너뛰기
+            continue
+            
         tag_display = tag.replace('_', ' ').title()
-        
-        # 각 태그를 접을 수 있는 details 태그 추가
-        problem_section += f"""
-<details>
+        readme_content += f"""<details>
 <summary>{tag_display}</summary>
+
 <div align="center">
+
 """
         
-        # 해당 태그의 문제들을 난이도순으로 정렬
-        sorted_problems = sorted(prob_list, key=lambda x: (x['difficulty'], x['number']))
+        # 문제 정렬 (난이도 -> 번호)
+        sorted_problems = sorted(problems, key=lambda x: (x['difficulty'], x['number']))
         
-        # 중복되지 않은 문제만 추가
+        # 문제 목록 추가
         for prob in sorted_problems:
-            problem_key = f"{prob['number']}"
-            if problem_key not in seen_problems:
-                problem_section += (
-                    f"{prob['difficulty']} [{prob['name']} (BOJ {prob['number']})]({prob['path']})  \n"
-                )
-                seen_problems.add(problem_key)
+            readme_content += f"{prob['difficulty']} [{prob['name']} (BOJ {prob['number']})]({prob['path']})\n\n"
         
         # 구현 테스트 파일이 있다면 추가
         test_path = f"Solutions/DataStructures/_Tests/{tag_display.replace(' ', '')}Test"
         if os.path.exists(test_path):
-            problem_section += f"✅ [{tag_display} Implementation Test]({test_path}/{tag.lower()}_test.cpp)\n"
+            readme_content += f"✅ [{tag_display} Implementation Test]({test_path}/{tag.lower()}_test.cpp)\n\n"
         
-        problem_section += "</div>\n</details>\n"
+        readme_content += "</div>\n</details>\n\n"
     
-    return problem_section
+    # References 섹션 추가
+    readme_content += """## 📚 References
+<p align="center">
+  <a href="https://blog.encrypted.gg/category/강좌/실전%20알고리즘"><img src="https://img.shields.io/badge/BaaaaaaaaaaarkingDog_Algorithm_Lecture-11B48A?style=flat-square&logo=Vimeo&logoColor=white"/></a>
+  <a href="https://www.acmicpc.net/"><img src="https://img.shields.io/badge/Baekjoon_Online_Judge-0076C0?style=flat-square&logo=Baidu&logoColor=white"/></a>
+</p>
+
+</div>"""
+    
+    # README 파일 쓰기
+    with open("README.md", "w", encoding="utf-8") as f:
+        f.write(readme_content)
 
 if __name__ == "__main__":
-    update_readme() 
+    generate_readme() 

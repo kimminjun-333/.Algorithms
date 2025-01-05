@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-    cout << "Test file for GitHub Actions - Testing Links" << endl;
+    cout << "Testing new README generation script" << endl;
     return 0;
 } 
