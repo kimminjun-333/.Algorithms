@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-    cout << "Testing new README generation script" << endl;
+    cout << "Testing file path structure" << endl;
     return 0;
 } 
