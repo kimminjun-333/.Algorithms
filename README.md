@@ -16,7 +16,7 @@
 
 ## 📚 Current Focus
 <p align="center">
-  <a href="https://blog.encrypted.gg/941"><img src="https://img.shields.io/badge/BFS-00599C?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
+  <a href="https://www.acmicpc.net/problem/1697"><img src="https://img.shields.io/badge/BOJ_1697-00599C?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
 </p>
 
 ## 🏃‍♂️ Problem Solving
