@@ -7,6 +7,7 @@ on:
     paths:
       - 'Solutions/**'
       - '.github/config/current_focus.json'
+  workflow_dispatch:
 
 jobs:
   update-readme:
