@@ -16,27 +16,10 @@
 
 ## 📚 Current Focus
 <p align="center">
-  <a href="https://blog.encrypted.gg/941"><img src="https://img.shields.io/badge/BFS-FF6B6B?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
+  <a href="https://blog.encrypted.gg/936"><img src="https://img.shields.io/badge/Advanced_Stack-FF6B6B?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
+  <a href="https://blog.encrypted.gg/935"><img src="https://img.shields.io/badge/Binary_Search-00599C?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
 </p>
 
-## 🏃‍♂️ Problem Solving
-### 🏅 Difficulty Stats
-
-<div align='center'>
-
-`🥉 Bronze                      ` `0`
-`🥈 Silver                      ` `16`
-`🥇 Gold                        ` `2`
-`💎 Platinum                    ` `0`
-`👑 Diamond                     ` `0`
-`🏆 Ruby                        ` `0`
-
-**Total Solved: 18 Problems**
-</div>
-
-<details>
-<summary>Data Structures</summary>
-<div align="center">
 ## 🏃‍♂️ Problem Solving
 ### 🏅 Difficulty Stats
 
@@ -59,58 +42,83 @@
 ### Array
 ✅ [Counting Alphabets (BOJ 10808)](Solutions/Baekjoon/10808.cpp)  
 ✅ [Array Implementation Test](Solutions/DataStructures/_Tests/ArrayTest/array_test.cpp)
+## 🏃‍♂️ Problem Solving
+### 🏅 Difficulty Stats
 
-### Linked List
-✅ [Text Editor (BOJ 1406)](Solutions/Baekjoon/1406.cpp)  
-✅ [Josephus Problem (BOJ 1158)](Solutions/Baekjoon/1158.cpp)  
-✅ [Linked List Implementation Test](Solutions/DataStructures/_Tests/LinkedListTest/linked_list_test.cpp)
+<div align='center'>
 
-### Stack
-✅ [Stack Implementation (BOJ 10828)](Solutions/Baekjoon/10828.cpp)  
-✅ [Zero (BOJ 10773)](Solutions/Baekjoon/10773.cpp)  
-✅ [Next Greater Element (BOJ 17298)](Solutions/Baekjoon/17298.cpp)
-✅ [Parenthesis String (BOJ 4949)](Solutions/Baekjoon/4949/4949.cpp)
+`🥉 Bronze                      ` `0`
+`🥈 Silver                      ` `16`
+`🥇 Gold                        ` `2`
+`💎 Platinum                    ` `0`
+`👑 Diamond                     ` `0`
+`🏆 Ruby                        ` `0`
 
-### Deque
-✅ [Deque Implementation (BOJ 10866)](Solutions/Baekjoon/10866/10866.cpp)  
-✅ [Deque Implementation Test](Solutions/DataStructures/_Tests/DequeTest/deque_test.cpp)
+**Total Solved: 18 Problems**
+</div>
 
-### Queue
-✅ [Queue Implementation (BOJ 10845)](Solutions/Baekjoon/10845.cpp)  
-✅ [Queue Implementation Test](Solutions/DataStructures/_Tests/QueueTest/queue_test.cpp)
 
+<details>
+<summary>Data Structures</summary>
+<div align="center">
+🥈 [스택 (BOJ 10828)](Solutions/Baekjoon/10828.cpp)  
+🥈 [큐 (BOJ 10845)](Solutions/Baekjoon/10845.cpp)  
+🥈 [덱 (BOJ 10866)](Solutions/Baekjoon/10866.cpp)  
+🥈 [에디터 (BOJ 1406)](Solutions/Baekjoon/1406.cpp)  
+🥈 [스택 수열 (BOJ 1874)](Solutions/Baekjoon/1874.cpp)  
+🥈 [균형잡힌 세상 (BOJ 4949)](Solutions/Baekjoon/4949.cpp)  
 </div>
 </details>
 
 <details>
-<summary>Algorithm Theory</summary>
+<summary>Deque</summary>
 <div align="center">
-
-### Basic Concepts
-Time Complexity Analysis  
-Space Complexity Analysis
-
-### Core Algorithms
-Sorting Algorithms  
-Search Algorithms  
-Graph Theory  
-Dynamic Programming  
-Greedy Algorithms
-
+✅ [Deque Implementation Test](Solutions/DataStructures/_Tests/DequeTest/deque_test.cpp)
 </div>
 </details>
 
-## 🛠 Development Environment
-<p align="center">
-  <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Visual_Studio-5C2D91?style=for-the-badge&logo=visual%20studio&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
-</p>
-
-## 📚 References
-<p align="center">
-  <a href="https://blog.encrypted.gg/category/강좌/실전%20알고리즘"><img src="https://img.shields.io/badge/BaaaaaaaaaaarkingDog_Algorithm_Lecture-11B48A?style=flat-square&logo=Vimeo&logoColor=white"/></a>
-  <a href="https://www.acmicpc.net/"><img src="https://img.shields.io/badge/Baekjoon_Online_Judge-0076C0?style=flat-square&logo=Baidu&logoColor=white"/></a>
-</p>
-
+<details>
+<summary>Dp</summary>
+<div align="center">
+🥇 [평범한 배낭 (BOJ 12865)](Solutions/Baekjoon/12865.cpp)  
 </div>
+</details>
+
+<details>
+<summary>Implementation</summary>
+<div align="center">
+</div>
+</details>
+
+<details>
+<summary>Knapsack</summary>
+<div align="center">
+</div>
+</details>
+
+<details>
+<summary>Linked List</summary>
+<div align="center">
+✅ [Linked List Implementation Test](Solutions/DataStructures/_Tests/LinkedListTest/linked_list_test.cpp)
+</div>
+</details>
+
+<details>
+<summary>Queue</summary>
+<div align="center">
+✅ [Queue Implementation Test](Solutions/DataStructures/_Tests/QueueTest/queue_test.cpp)
+</div>
+</details>
+
+<details>
+<summary>Stack</summary>
+<div align="center">
+✅ [Stack Implementation Test](Solutions/DataStructures/_Tests/StackTest/stack_test.cpp)
+</div>
+</details>
+
+<details>
+<summary>String</summary>
+<div align="center">
+</div>
+</details>
