@@ -20,38 +20,6 @@
 </p>
 
 ## 🏃‍♂️ Problem Solving
-### 🏅 Difficulty Stats
-
-<div align='center'>
-
-`🥉 Bronze                      ` `0`
-`🥈 Silver                      ` `16`
-`🥇 Gold                        ` `2`
-`💎 Platinum                    ` `0`
-`👑 Diamond                     ` `0`
-`🏆 Ruby                        ` `0`
-
-**Total Solved: 18 Problems**
-</div>
-
-<details>
-<summary>Data Structures</summary>
-<div align="center">
-## 🏃‍♂️ Problem Solving
-### 🏅 Difficulty Stats
-
-<div align='center'>
-
-`🥉 Bronze                      ` `0`
-`🥈 Silver                      ` `16`
-`🥇 Gold                        ` `2`
-`💎 Platinum                    ` `0`
-`👑 Diamond                     ` `0`
-`🏆 Ruby                        ` `0`
-
-**Total Solved: 18 Problems**
-</div>
-
 <details>
 <summary>Data Structures</summary>
 <div align="center">
