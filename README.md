@@ -21,9 +21,14 @@
 </p>
 
 ## 🏃‍♂️ Problem Solving
-<details>
-<summary>Data Structures</summary>
-<div align="center">
+### 🏅 Difficulty Stats
+
+<div align='center'>
+
+`🥉 Bronze                      ` `0`
+`🥈 Silver                      ` `16`
+`🥇 Gold                        ` `2`
+`💎 Platinum                    ` `0`
 ## 🏃‍♂️ Problem Solving
 ### 🏅 Difficulty Stats
 
@@ -39,67 +44,69 @@
 **Total Solved: 18 Problems**
 </div>
 
-<details open>
-<summary>Solved Problems by Category</summary>
+
+<details>
+<summary>Data Structures</summary>
 <div align="center">
-
-### Data Structures
 🥈 [스택 (BOJ 10828)](Solutions/Baekjoon/10828.cpp)  
 🥈 [큐 (BOJ 10845)](Solutions/Baekjoon/10845.cpp)  
 🥈 [덱 (BOJ 10866)](Solutions/Baekjoon/10866.cpp)  
 🥈 [에디터 (BOJ 1406)](Solutions/Baekjoon/1406.cpp)  
 🥈 [스택 수열 (BOJ 1874)](Solutions/Baekjoon/1874.cpp)  
 🥈 [균형잡힌 세상 (BOJ 4949)](Solutions/Baekjoon/4949.cpp)  
-
-
-### Deque
-🥈 [덱 (BOJ 10866)](Solutions/Baekjoon/10866.cpp)  
-✅ [Deque Implementation Test](Solutions/DataStructures/_Tests/DequeTest/deque_test.cpp)
-
-
-### Dp
-🥇 [평범한 배낭 (BOJ 12865)](Solutions/Baekjoon/12865.cpp)  
-
-
-### Implementation
-🥈 [스택 (BOJ 10828)](Solutions/Baekjoon/10828.cpp)  
-🥈 [덱 (BOJ 10866)](Solutions/Baekjoon/10866.cpp)  
-
-
-### Knapsack
-🥇 [평범한 배낭 (BOJ 12865)](Solutions/Baekjoon/12865.cpp)  
-
-
-### Linked List
-🥈 [에디터 (BOJ 1406)](Solutions/Baekjoon/1406.cpp)  
-✅ [Linked List Implementation Test](Solutions/DataStructures/_Tests/LinkedListTest/linked_list_test.cpp)
-
-
-### Queue
-🥈 [큐 (BOJ 10845)](Solutions/Baekjoon/10845.cpp)  
-✅ [Queue Implementation Test](Solutions/DataStructures/_Tests/QueueTest/queue_test.cpp)
-
-
-### Stack
-🥈 [스택 (BOJ 10828)](Solutions/Baekjoon/10828.cpp)  
-🥈 [에디터 (BOJ 1406)](Solutions/Baekjoon/1406.cpp)  
-🥈 [스택 수열 (BOJ 1874)](Solutions/Baekjoon/1874.cpp)  
-🥈 [균형잡힌 세상 (BOJ 4949)](Solutions/Baekjoon/4949.cpp)  
-✅ [Stack Implementation Test](Solutions/DataStructures/_Tests/StackTest/stack_test.cpp)
-
-
-### String
-🥈 [균형잡힌 세상 (BOJ 4949)](Solutions/Baekjoon/4949.cpp)  
-
 </div>
 </details>
-  <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
-</p>
 
-## 📚 References
-<p align="center">
-  <a href="https://blog.encrypted.gg/category/강좌/실전%20알고리즘"><img src="https://img.shields.io/badge/BaaaaaaaaaaarkingDog_Algorithm_Lecture-11B48A?style=flat-square&logo=Vimeo&logoColor=white"/></a>
-  <a href="https://www.acmicpc.net/"><img src="https://img.shields.io/badge/Baekjoon_Online_Judge-0076C0?style=flat-square&logo=Baidu&logoColor=white"/></a>
-</p>
+<details>
+<summary>Deque</summary>
+<div align="center">
+✅ [Deque Implementation Test](Solutions/DataStructures/_Tests/DequeTest/deque_test.cpp)
+</div>
+</details>
 
+<details>
+<summary>Dp</summary>
+<div align="center">
+🥇 [평범한 배낭 (BOJ 12865)](Solutions/Baekjoon/12865.cpp)  
+</div>
+</details>
+
+<details>
+<summary>Implementation</summary>
+<div align="center">
+</div>
+</details>
+
+<details>
+<summary>Knapsack</summary>
+<div align="center">
+</div>
+</details>
+
+<details>
+<summary>Linked List</summary>
+<div align="center">
+✅ [Linked List Implementation Test](Solutions/DataStructures/_Tests/LinkedListTest/linked_list_test.cpp)
+</div>
+</details>
+
+<details>
+<summary>Queue</summary>
+<div align="center">
+✅ [Queue Implementation Test](Solutions/DataStructures/_Tests/QueueTest/queue_test.cpp)
+</div>
+</details>
+
+<details>
+<summary>Stack</summary>
+<div align="center">
+✅ [Stack Implementation Test](Solutions/DataStructures/_Tests/StackTest/stack_test.cpp)
+</div>
+</details>
+
+<details>
+<summary>String</summary>
+<div align="center">
+</div>
+</details>
 </div>
