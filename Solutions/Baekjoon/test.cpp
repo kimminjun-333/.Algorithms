@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-    cout << "Testing alignment fix" << endl;
+    cout << "Testing GitHub Actions with GITHUB_TOKEN" << endl;
     return 0;
 } 
