@@ -2,6 +2,6 @@
 using namespace std;
 
 int main() {
-    cout << "Testing with double newlines" << endl;
+    cout << "Testing category newlines" << endl;
     return 0;
 } 

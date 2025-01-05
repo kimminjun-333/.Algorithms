@@ -146,6 +146,7 @@ def generate_readme():
 <summary>{tag_display}</summary>
 
 <div align="center">
+
 """
         
         # 문제 정렬 (난이도 -> 번호)
