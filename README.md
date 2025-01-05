@@ -16,7 +16,6 @@
 
 ## 📚 Current Focus
 <p align="center">
-  <a href="https://blog.encrypted.gg/936"><img src="https://img.shields.io/badge/Advanced_Stack-FF6B6B?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
   <a href="https://blog.encrypted.gg/941"><img src="https://img.shields.io/badge/BFS-00599C?style=flat-square&logo=TheAlgorithms&logoColor=white"/></a>
 </p>
 
